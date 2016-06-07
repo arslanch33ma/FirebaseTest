@@ -1,7 +1,13 @@
 package com.example.cheema.firebasetest;
 
+import android.Manifest;
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,23 +27,24 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView ;
+    TextView textView;
     Button btnSunny;
-    Button btnFoggy ;
-    Button btnRunService ;
+    Button btnFoggy;
+    Button btnRunService;
     Button btnPushChild;
-    Button btnRunIntentService ;
+    Button btnRunIntentService;
 
 
-    Firebase baseURL ;
-    Firebase fRef ;
-    Firebase messagesRef  ;
+    Firebase baseURL;
+    Firebase fRef;
+    Firebase messagesRef;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     @Override
@@ -131,8 +138,10 @@ public class MainActivity extends AppCompatActivity {
         btnRunIntentService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),SendLocationsIntentService.class);
-                startService(i);
+//                Intent i = new Intent(getApplicationContext(),SendLocationsIntentService.class);
+//                startService(i);
+                Intent i = new Intent(getApplicationContext(),SendLocationsIntentActivity.class);
+                startActivity(i);
             }
         });
 
